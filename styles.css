@@ -85,10 +85,10 @@ nav {
 }
 
 .hero-text {
-    max-width: 600px;
+    max-width: auto;
 }
 
-/* Responsive styles */
+/* Responsive */
 @media (max-width: 768px) {
     .tech-hero {
         flex-direction: column;
