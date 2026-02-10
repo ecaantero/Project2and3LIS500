@@ -72,4 +72,33 @@ nav {
     margin-top: 20px;
 }
 
-/* more styles here test */ 
+/* Tech Hero Image */ 
+.tech-hero {
+    display: flex; 
+    align-items: flex-start;
+    gap: 20px;         
+}
+
+.hero-image {
+    width: 250px;
+    height: auto;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .tech-hero {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-image {
+        width: 80%;
+    }
+}
+
+
