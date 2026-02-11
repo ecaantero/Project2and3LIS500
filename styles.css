@@ -64,7 +64,7 @@ nav {
 }
 
 /* Tech Hero Section */
-.contact {
+.techHeroSection {
     background-color: lightpink; 
     padding: 20px;
     border-radius: 8px;
@@ -100,5 +100,9 @@ nav {
         width: 80%;
     }
 }
+
+
+
+
 
 
