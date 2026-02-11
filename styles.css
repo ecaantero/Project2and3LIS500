@@ -3,6 +3,7 @@ h1 {
     font-size: 32px;
     color: #333;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 /* Style for paragraph */
@@ -14,7 +15,7 @@ p {
 
 /* Profile */
 .profile {
-    background-color: lightpink;
+    background-color: #FFC7E2; /* light pink */ 
     font-weight: bold;
     padding: 20px; 
     border-radius: 8px;
@@ -51,12 +52,12 @@ nav {
 
 /* Hover color for links */
 .navbar li a:hover {
-    color: lightpink;  
+    color: #FFC7E2;  /* light pink*/
 }
 
 /* Interests Section */
 .interests {
-    background-color: lightpink; 
+    background-color: #FFC7E2;  /*light pinl*/
     padding: 20px;
     border-radius: 8px;
     font-weight: bold;
@@ -65,7 +66,7 @@ nav {
 
 /* Tech Hero Section */
 .techHeroSection {
-    background-color: lightpink; 
+    background-color: #FFC7E2;  /*light pink */ 
     padding: 20px;
     border-radius: 8px;
     font-weight: bold;
