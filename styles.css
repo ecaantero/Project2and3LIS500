@@ -118,7 +118,16 @@ nav {
 .christian-profile p {
     line-height: 1.5;           
     color: black;             
-}    
+}  
+
+.ChristiansInterests {
+    background-color: #3498db;
+    padding: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
 }
 
 
