@@ -102,22 +102,22 @@ nav {
     }
 }
     .christian-profile {
-    background-color: #3498db;   /* blue background */
-    color: white;                /* white text for readability */
-    padding: 20px;               /* keeps text away from edges */
-    margin-top: 50px;            /* space above section, separates from Tech Hero */
-    border-radius: 8px;          /* rounded corners to match design */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* subtle shadow */
+    background-color: #3498db;   
+    color: black;                
+    padding: 20px;               
+    margin-top: 50px;            
+    border-radius: 8px;          
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .christian-profile h2 {
-    color: #ffffff;             /* white heading text */
+    color: black;             
     margin-bottom: 15px;
 }
 
 .christian-profile p {
-    line-height: 1.6;           /* readable spacing for paragraphs */
-    color: #f0f0f0;             /* slightly lighter white for paragraph text */
+    line-height: 1.5;           
+    color: black;             
 }    
 }
 
