@@ -101,7 +101,7 @@ nav {
     }
 }
     .christian-profile {
-    background-color: #3498db;  /* blue */ 
+    background-color: #3498db;  
     color: black;                
     padding: 20px;               
     margin-top: 50px;            
@@ -120,11 +120,19 @@ nav {
 }  
 
 .ChristiansInterests {
-    background-color: #3498db; /* blue */ 
+    background-color: #3498db;  
     padding: 20px;
     border-radius: 8px;
     font-weight: bold;
     margin-top: 20px;
+}
+
+.christianTechHeroSection {
+    background-color: #3498db;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    color: black;
 }
 
 /* table styles */ 
