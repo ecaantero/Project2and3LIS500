@@ -54,7 +54,7 @@ nav {
     color: #FFC7E2;  /* light pink*/
 }
 
-/* Interests Section */
+/* Emilia Interests Section */
 .interests {
     background-color: #FFC7E2;  /*light pinl*/
     padding: 20px;
@@ -63,7 +63,7 @@ nav {
     margin-top: 20px;
 }
 
-/* Tech Hero Section */
+/* Emilia - Tech Hero Section */
 .techHeroSection {
     background-color: #FFC7E2;  /*light pink */ 
     padding: 20px;
@@ -72,7 +72,7 @@ nav {
     margin-top: 20px;
 }
 
-/* Tech Hero Image */ 
+/* Emilia - Tech Hero Image */ 
 .tech-hero {
     display: flex; 
     align-items: flex-start;
@@ -100,6 +100,8 @@ nav {
         width: 80%;
     }
 }
+
+/*Christian profile */ 
     .christian-profile {
     background-color: #3498db;  /* blue */ 
     color: black;                
@@ -108,6 +110,7 @@ nav {
     border-radius: 8px;          
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
+
 
 .christian-profile h2 {
     color: black;             
@@ -119,6 +122,7 @@ nav {
     color: black;             
 }  
 
+/* Christian Intrests */ 
 .ChristiansInterests {
     background-color: #3498db; /* blue */ 
     padding: 20px;
@@ -133,7 +137,7 @@ table {
     margin-right: auto;
 }
 
-
+/* H2 Styles Text */ 
 .h2Text {
     font-weight: bold;
     font-size: 25px;
