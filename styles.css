@@ -144,6 +144,7 @@ nav {
 table {
     margin-left: auto; /* center table */ 
     margin-right: auto;
+    width: 1000px;
 }
 
 /* H2 Styles Text */ 
@@ -155,5 +156,18 @@ table {
     padding-top: 20px;
 
 }
+
+/* width of 800px*/ 
+.profile,
+.interests,
+.techHeroSection,
+.christian-profile,
+.ChristiansInterests,
+.christianTechHeroSection {
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 
