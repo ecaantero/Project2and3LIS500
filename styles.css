@@ -170,4 +170,36 @@ table {
 }
 
 
+/* Project Overview Section on Index */
+#project-overview {
+    padding: 60px 10%;
+}
 
+.overview-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+/* Layout */
+.overview-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+/* Image left */
+.overview-image {
+    flex: 1;
+}
+
+.overview-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Text right */
+.overview-text {
+    flex: 1;
+}
