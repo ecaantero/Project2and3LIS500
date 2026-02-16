@@ -1,3 +1,6 @@
+/* Feel free to change any of this! */
+
+
 /* Style for H1 */
 h1 {
     font-size: 34px;
@@ -47,6 +50,8 @@ nav {
     padding: 10px 20px;
     font-weight: bold;
     transition: color 0.2s;
+    text-decoration: none; /* remove underline */ 
+    font-size: 20px;
 }
 
 /* Hover color for links */
@@ -201,5 +206,24 @@ table {
 
 /* Text right */
 .overview-text {
-    flex: 1;
+    flex: 1; 
 }
+
+
+/* button styles */ 
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 20px 0 0; /* spacing of buttons*/ 
+    background-color: rgb(146, 0, 99); /* dark pink */
+    color: white;
+    border-radius: 8px; /* rounded corners*/ 
+    font-weight: bold;
+    text-decoration: none; /* remove underline*/ 
+    font-size: 20px;
+}
+
+.btn:hover { /* changes color on hover */ 
+    background-color: rgb(186, 9, 104) /* lighter pink */
+}
+
