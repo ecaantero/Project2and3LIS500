@@ -164,10 +164,11 @@ table {
 /* H2 Styles Text */ 
 .h2Text {
     font-weight: bold;
-    font-size: 25px;
+    font-size: 20px;
     text-align: center;
     padding-bottom: 20px;
     padding-top: 20px;
+    color: #333;
 
 }
 
@@ -187,6 +188,7 @@ table {
 /* Project Overview Section on Index */
 #project-overview {
     padding: 60px 10%;
+    color: #333; 
 }
 
 .overview-heading {
