@@ -237,3 +237,11 @@ table {
 .btn:hover { /* changes color on hover */ 
     background-color: rgb(186, 9, 104) /* lighter pink */
 }
+
+
+/* Resource Images*/
+.resource-image {
+    width: 600px;
+    height: auto;
+    margin: 0 auto; /* center */ 
+    border-radius: 8px;
