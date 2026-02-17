@@ -18,6 +18,12 @@ p {
     text-align: center;
 }
 
+.h2Text + p { /* center text with max width on resoources page for summary*/ 
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
 /* Profile */
 .profile {
     background-color: #FFC7E2; /* light pink */ 
