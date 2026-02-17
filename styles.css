@@ -90,12 +90,14 @@ nav {
 .tech-hero {
     display: flex; 
     align-items: flex-start;
-    gap: 20px;         
+    gap: 20px;
+       
 }
 
 .hero-image {
     width: 250px;
     height: auto;
+    border-radius: 8px;
 }
 
 .hero-text {
