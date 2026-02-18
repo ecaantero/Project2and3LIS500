@@ -172,11 +172,10 @@ nav {
 /* Center images inside cards */
 .center-image {
     display: block;
-    margin: 0 auto 15px auto; /* auto left/right margin to center, 15px bottom spacing */
+    margin: 0 auto 15px auto; 
     border-radius: 12px;
 }
 
-/* Optional: smaller hero images for stacked layout */
 .hero-image {
     width: 80%;
     max-width: 400px;
@@ -185,7 +184,7 @@ nav {
 /* Card Images */
 .card-image {
     display: block;
-    margin: 0 auto 10px auto; /* centered with spacing below */
+    margin: 0 auto 10px auto; 
     max-width: 100%;
     height: auto;
     border-radius: 8px;
