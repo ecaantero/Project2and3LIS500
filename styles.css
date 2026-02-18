@@ -1,112 +1,155 @@
-/* Feel free to change any of this! */
 
-
-/* Style for H1 */
-h1 {
-    font-size: 34px;
+body {
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    line-height: 1.6;
     color: #333;
-    margin-bottom: 10px;
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: #f5f5f5;
 }
 
-/* Style for paragraph */
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 p {
-    font-size: 16px;
-    line-height: 1.5;
     margin-bottom: 10px;
-    text-align: center;
 }
 
-.h2Text + p { /* center text with max width on resoources page for summary*/ 
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-
-/* Profile */
-.profile {
-    background-color: #FFC7E2; /* light pink */ 
-    font-weight: bold;
-    padding: 20px; 
-    border-radius: 8px;
-}
-
-/* --- NAV styles--- */
-
-/* Navbar container */
+/* Navbar */
 nav {
-    background-color: #333;   /* dark gray */
-    padding: 10px 0;
+    background-color: #333;
     position: sticky;
     top: 0;
     width: 100%;
+    z-index: 100;
 }
 
-/* Navbar horizontal - stays at the top of page*/
 .navbar {
     list-style: none;
     display: flex;
-    justify-content: center;  
+    justify-content: center;
     margin: 0;
-    padding: 0;
+    padding: 10px 0;
 }
 
-/* Navbar links */
 .navbar li a {
-    color: white;
+    color: #fff;
     padding: 10px 20px;
+    text-decoration: none;
     font-weight: bold;
+    font-size: 18px;
     transition: color 0.2s;
-    text-decoration: none; /* remove underline */ 
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/* Hover color for links */
 .navbar li a:hover {
-    color: #FFC7E2;  /* light pink*/
+    color: #FFC7E2;
 }
 
-/* Emilia Interests Section */
-.interests {
-    background-color: #FFC7E2;  /*light pinl*/
-    padding: 20px;
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 10px 0 0;
+    background-color: rgb(146, 0, 99);
+    color: #fff;
     border-radius: 8px;
     font-weight: bold;
-    margin-top: 20px;
+    text-decoration: none;
+    transition: background 0.2s;
 }
 
-/* Emilia - Tech Hero Section */
-.techHeroSection {
-    background-color: #FFC7E2;  /*light pink */ 
+.btn:hover {
+    background-color: rgb(186, 9, 104);
+}
+
+/* Sections */
+.profile, .interests, .techHeroSection,
+.christian-profile, .ChristiansInterests, .christianTechHeroSection {
+    background-color: #FFC7E2;
+    max-width: 900px;
+    margin: 20px auto;
     padding: 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 20px;
+    border-radius: 12px;
 }
 
-/* Emilia - Tech Hero Image */ 
+.christian-profile, .ChristiansInterests, .christianTechHeroSection {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Tech Hero Layout */
 .tech-hero {
-    display: flex; 
-    align-items: flex-start;
+    display: flex;
     gap: 20px;
-       
+    align-items: flex-start;
 }
 
 .hero-image {
     width: 250px;
-    height: auto;
     border-radius: 8px;
 }
 
 .hero-text {
-    max-width: auto;
+    flex: 1;
 }
 
-/* Responsive */
+/* Cards for Index and Resources */
+.team-cards, .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.team-card, .card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    flex: 1 1 280px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.team-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.resource-image {
+    width: 80%;
+    max-width: 600px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+}
+
+/*Project Overview */
+#project-overview {
+    padding: 40px 10%;
+}
+
+.overview-container {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.overview-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+}
+
+/*Responsive */
 @media (max-width: 760px) {
-    .tech-hero {
+    .tech-hero, .overview-container {
         flex-direction: column;
         align-items: center;
         text-align: center;
@@ -117,134 +160,57 @@ nav {
     }
 }
 
-/*Christian profile */ 
-    .christian-profile {
-    background-color: #3498db;  
-    color: black;                
-    padding: 20px;               
-    margin-top: 50px;            
-    border-radius: 8px;          
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+/* Left-align text inside cards */
+.team-card.left-align,
+.team-card.left-align p,
+.team-card.left-align h3,
+.team-card.left-align ul,
+.team-card.left-align li {
+    text-align: left;
 }
 
-
-.christian-profile h2 {
-    color: black;             
-    margin-bottom: 15px;
-}
-
-.christian-profile p {
-    line-height: 1.5;           
-    color: black;             
-}  
-
-/* Christian Intrests */ 
-.ChristiansInterests {
-    background-color: #3498db;  
-    padding: 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-
-.christianTechHeroSection {
-    background-color: #3498db;
-    padding: 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 20px;
-    color: black;
-}
-
-/* table styles */ 
-table {
-    margin-left: auto; /* center table */ 
-    margin-right: auto;
-    width: 1000px;
-}
-
-/* H2 Styles Text */ 
-.h2Text {
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    color: #333;
-
-}
-
-/* width of 800px*/ 
-.profile,
-.interests,
-.techHeroSection,
-.christian-profile,
-.ChristiansInterests,
-.christianTechHeroSection {
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-/* Project Overview Section on Index */
-#project-overview {
-    padding: 60px 10%;
-    color: #333; 
-}
-
-.overview-heading {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-}
-
-/* Layout */
-.overview-container {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-/* Image left */
-.overview-image {
-    flex: 1;
-}
-
-.overview-image img {
-    width: 100%;
-    height: auto;
+/* Center images inside cards */
+.center-image {
     display: block;
+    margin: 0 auto 15px auto; /* auto left/right margin to center, 15px bottom spacing */
+    border-radius: 12px;
 }
 
-/* Text right */
-.overview-text {
-    flex: 1; 
+/* Optional: smaller hero images for stacked layout */
+.hero-image {
+    width: 80%;
+    max-width: 400px;
 }
 
-
-/* button styles */ 
-.btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 20px 20px 0 0; /* spacing of buttons*/ 
-    background-color: rgb(146, 0, 99); /* dark pink */
-    color: white;
-    border-radius: 8px; /* rounded corners*/ 
-    font-weight: bold;
-    text-decoration: none; /* remove underline*/ 
-    font-size: 20px;
-}
-
-.btn:hover { /* changes color on hover */ 
-    background-color: rgb(186, 9, 104) /* lighter pink */
-}
-
-
-/* Resource Images*/
-.resource-image {
-    width: 600px;
+/* Card Images */
+.card-image {
+    display: block;
+    margin: 0 auto 10px auto; /* centered with spacing below */
+    max-width: 100%;
     height: auto;
-    margin: 0 auto; /* center */ 
     border-radius: 8px;
+}
+
+/* Cards container for grid layout */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual card styling */
+.card {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Headings inside cards */
+.card h3, .card a {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
