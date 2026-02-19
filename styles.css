@@ -116,7 +116,7 @@ nav {
 }
 
 .team-card img {
-    width: auto; /* feed free to change */ 
+    width: 200px; /* feed free to change */ 
     height: 150px;
     object-fit: cover;
     border-radius: 10%; /* higiher % is more round, change if wanted */ /* arund 50% is circle*/ 
@@ -233,4 +233,25 @@ nav {
     text-align: left;
     margin-left: 15%;
     margin-right: 15%;
+}
+
+.team-card a,
+.card a {
+    color: rgb(151, 0, 103) ;
+    transition: color 0.3s ease;
+}
+
+.team-card a:visited,
+.card a:visited {
+    color: darkblue; 
+}
+
+.team-card a:hover,
+.card a:hover {
+    color: rgb(36, 0, 25) ;
+}
+
+.team-card a:active,
+.card a:active {
+    color: black;
 }
