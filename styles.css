@@ -131,22 +131,35 @@ nav {
     border-radius: 12px;
 }
 
-/*Project Overview */
+/* Project Overview - at top - on index */
+/* image left and texr right*/ 
 #project-overview {
-    padding: 40px 10%;
+    padding: 60px 10%;
 }
 
 .overview-container {
     display: flex;
-    gap: 40px;
     align-items: center;
-    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+.overview-image {
+    flex: 0 0 40%;
 }
 
 .overview-image img {
     width: 100%;
-    max-width: 500px;
     border-radius: 12px;
+}
+
+.overview-text {
+    flex: 0 0 60%;
+}
+
+.overview-text p {
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 /*Responsive */
