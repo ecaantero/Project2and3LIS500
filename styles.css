@@ -48,6 +48,7 @@ nav {
 }
 
 /* Buttons */
+
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -58,6 +59,7 @@ nav {
     font-weight: bold;
     text-decoration: none;
     transition: background 0.2s;
+
 }
 
 .btn:hover {
@@ -111,7 +113,7 @@ nav {
     border-radius: 12px;
     padding: 20px;
     flex: 1 1 280px;
-    box-shadow: 0 4px 8px black;
+    box-shadow: 0 4px 8px lightslategray; 
     text-align: center;
 }
 
@@ -219,7 +221,7 @@ nav {
     padding: 20px;
     border-radius: 12px;
     width: 300px;
-    box-shadow: 0 4px 8px black;
+    box-shadow: 0 4px 8px lightslategray;
     text-align: center;
 }
 
@@ -237,14 +239,17 @@ nav {
 
 .team-card a,
 .card a {
-    color: rgb(151, 0, 103) ;
+    color: rgb(165, 0, 113) ;
     transition: color 0.3s ease;
 }
 
+/* 
 .team-card a:visited,
 .card a:visited {
-    color: darkblue; 
+    color: white; 
 }
+
+*/ 
 
 .team-card a:hover,
 .card a:hover {
