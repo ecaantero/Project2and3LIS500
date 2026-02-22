@@ -243,35 +243,18 @@ nav {
     transition: color 0.3s ease;
 }
 
-/* 
-.team-card a:visited,
-.card a:visited {
-    color: white; 
-}
-
-*/ 
-
-.team-card a:hover,
-.card a:hover {
-    color: rgb(36, 0, 25) ;
-}
-
-.team-card a:active,
-.card a:active {
-    color: black;
-}
 
 .team-card a.btn,
 .card a.btn {
-    color: white;             /* text color */
+    color: white;             
 }
 
 .team-card a.btn:hover,
 .card a.btn:hover {
-    color: white;             /* text color stays white on hover */
+    color: white;             
 }
 
 .team-card a.btn:active,
 .card a.btn:active {
-    color: white;             /* text color stays white when clicked */
+    color: white;            
 }
