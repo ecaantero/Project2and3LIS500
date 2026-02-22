@@ -260,3 +260,13 @@ nav {
 .card a:active {
     color: black;
 }
+
+.team-card a.btn,
+.card a.btn {
+    color: white; 
+}
+
+.team-card a.btn:hover,
+.card a.btn:hover {
+    color: white; 
+}
