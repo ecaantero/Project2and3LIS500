@@ -48,7 +48,6 @@ nav {
 }
 
 /* Buttons */
-
 .btn {
     display: inline-block;
     padding: 10px 20px;
@@ -58,12 +57,12 @@ nav {
     border-radius: 8px;
     font-weight: bold;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: background 0.2s; 
 
 }
 
 .btn:hover {
-    background-color: rgb(186, 9, 104); /* dark pink */ 
+    background-color: rgb(221, 0, 118); /* darker pink from regular button color */ 
 }
 
 /* Sections */
@@ -239,7 +238,7 @@ nav {
 
 .team-card a,
 .card a {
-    color: rgb(165, 0, 113) ;
+    color: rgb(165, 0, 113) ; /* darak pink*/ 
     transition: color 0.3s ease;
 }
 
