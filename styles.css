@@ -107,6 +107,7 @@ nav {
     max-width: 1200px;
 }
 
+
 .team-card, .card {
     background-color: white;
     border-radius: 12px;
@@ -131,6 +132,7 @@ nav {
     margin: 20px auto;
     border-radius: 12px;
 }
+
 
 /* Project Overview - at top - on index */
 /* image left and texr right */ 
@@ -228,6 +230,13 @@ nav {
 .card h3, .card a {
     margin-top: 10px;
     margin-bottom: 10px;
+    text-decoration: none; /* get rid of underline*/ 
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.card a:hover {
+    color: rgb(221, 0, 118); 
 }
 
 .h2Text p {
