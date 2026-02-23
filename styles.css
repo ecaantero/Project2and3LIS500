@@ -258,3 +258,8 @@ nav {
 .card a.btn:active {
     color: white;            
 }
+
+/* center p text in analysis on resources page */ 
+.analysis-section p {
+    text-align: left;
+}
