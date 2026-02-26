@@ -35,11 +35,11 @@ nav {
 }
 
 .navbar li a {
-    color: #fff;
+    color: #fff; /* white */ 
     padding: 10px 20px;
-    text-decoration: none;
+    text-decoration: none; /* no underline*/ 
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
     transition: color 0.2s;
 }
 
@@ -66,7 +66,7 @@ nav {
 }
 
 /* Sections */
-.profile, .interests, .techHeroSection,
+.profile, .interests, .techHeroSection, /* some of these were removed with feedback changes */ 
 .christian-profile, .ChristiansInterests, .christianTechHeroSection {
     background-color: #FFC7E2; /* light pink*/ 
     max-width: 900px;
@@ -266,8 +266,6 @@ nav {
 .card a.btn:active {
     color: white;            
 }
-
-
 
 /* center p text in analysis on resources page */ 
 .analysis-section p {
