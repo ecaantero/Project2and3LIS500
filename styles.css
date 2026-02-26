@@ -141,6 +141,7 @@ nav {
     padding: 60px 10%;
 }
 
+
 .overview-container {
     display: flex;
     align-items: center;
@@ -271,4 +272,15 @@ nav {
 /* center p text in analysis on resources page */ 
 .analysis-section p {
     text-align: left;
+}
+
+
+.resource-card {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
