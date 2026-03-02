@@ -48,6 +48,12 @@ nav {
     color: #FFC7E2; /* light ppink*/ 
 }
 
+.navbar li a.active {
+    color: #FFC7E2;  /* light pink */
+    border-bottom: 3px solid #FFC7E2;
+    padding-bottom: 5px;
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
