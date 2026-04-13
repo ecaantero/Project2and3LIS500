@@ -92,6 +92,18 @@
             </div>
         </section>
 
+        <!-- Reflection to UnmaskingAI  -->
+        <section class="key-terms analysis-section">
+            <h2 class="overview-heading">Relation to Unmasking AI by Buolawmini</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <p>
+                        [ place holder ]
+                    </p>
+                </div>
+            </div>
+        </section>
+
         <!-- Lessons Learned -->
         <section class="key-terms analysis-section">
             <h2 class="overview-heading">Lessons Learned</h2>
@@ -106,6 +118,71 @@
 
     </main>
 
+        <!-- Script -->
+        <script>
+            let video;
+            let label = "waiting...";
+            let classifier;
+    
+            // add teachable machine model Link below
+            let modelURL = 'TMmodelLinkHere'; // placeholder for now - add link later 
+    
+            function preload() {
+                classifier = ml5.imageClassifier(modelURL + 'model.json');
+            }
+    
+            function setup() {
+                let canvas = createCanvas(640, 520);
+                canvas.parent("canvasContainer");
+                video = createCapture(VIDEO);
+                video.size(640, 520);
+                video.hide();
+                classifyVideo();
+            }
+    
+            function draw() {
+                background(0);
+                image(video, 0, 0);
+    
+                textSize(32);
+                textAlign(CENTER, CENTER);
+                fill(255);
+                text(label, width / 2, height - 16);
+    
+                if (label === "object1") {
+                     emoji = "1 emoji"; // emoji for object 1
+                    } else if (label === "object2") {
+                        emoji = "2 emoji"; // emoji for object 2
+                    } else if (label === "object3") {
+                        emoji = "3 emoji"; // emoji for object 3
+                    } else {
+                        emoji = "❓"; // 'error' if not able to identify 
+                    }
+    
+               // let emoji = "❓"; // unknown 
+             //   if (label === "object1") emoji = "emoji1"; // object type 1
+              //  else if (label === "object2") emoji = "emoji2"; // object type 2 
+    
+                
+    
+                textSize(256);
+                text(emoji, width / 2, height / 2);
+            }
+    
+            function classifyVideo() {
+                classifier.classify(video, gotResults);
+            }
+    
+            function gotResults(error, results) {
+                if (error) {
+                    console.error(error);
+                    return;
+                }
+                label = results[0].label;
+                document.getElementById("label").innerText = label;
+                classifyVideo();
+            }
+        </script>
 
 </body>
 </html>
