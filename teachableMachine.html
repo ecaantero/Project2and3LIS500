@@ -66,7 +66,7 @@
                         Our group created an original dataset to train a machine learning model. We focused on classifying different categories of cups. This included using various colors, backgrounds, angles, distances, use of lights, shapes, and sizes. Each group member collected 100 original images, resulting in a total of 300 images. This allowed us to better understand how the data we collected directly affects the model's performance, outcomes, and potential bias. This helped make the dataset more diverse, given the various images captured. After collecting the images, we organized them into 3 labeled categories. <br> 
                         <br> 
                         Class 1 = White Cups <br>
-                        Class 2 = <br> Red/Blue Cup
+                        Class 2 = <br> Blue/Red Cup
                         <br> 
                         These were then used for training, where Teachable Machine uses TenserFLow.js. Teachable Machine uses supervised learning to complete this. This model is based on data input, model training, and real-time predictions. 
                         During training, the model is able to recognize and pick up patterns seen in the samples we provided. The model is able to identify patterns within the provided samples and adjust its parameters accordingly. This showed the importance of data quality and variation in building an effective machine learning model.
@@ -181,7 +181,7 @@
             let classifier;
     
             // add teachable machine model Link below
-            let modelURL = 'TMmodelLinkHere'; // placeholder for now - add link later 
+            let modelURL = 'https://teachablemachine.withgoogle.com/models/ta2evh1EZ/'; // placeholder for now - add link later 
     
             function preload() {
                 classifier = ml5.imageClassifier(modelURL + 'model.json');
@@ -204,26 +204,15 @@
                 textAlign(CENTER, CENTER);
                 fill(255);
                 text(label, width / 2, height - 16);
-
-                // Emilia = object 1 
-                // Christian = object 2
-                // Sreeja = object 3 
-    
-                if (label === "white Cup") { // emilia: object 1 - white mug 
-                     emoji = "⚪"; //  
-                    } else if (label === "object2") { 
-                        emoji = "2 emoji"; // object 2 - 
-                    } else if (label === "object3") {
-                        emoji = "3 emoji"; // object 3 - 
-                    } else {
-                        emoji = "❓"; // 'error' if not able to identify image 
-                    }
-    
-               // let emoji = "❓"; // unknown 
-             //   if (label === "object1") emoji = "emoji1"; // object type 1
-              //  else if (label === "object2") emoji = "emoji2"; // object type 2 
-    
                 
+                
+                let emoji = "❓";
+                if (label === "White Cup") { 
+                    emoji = "⚪"; 
+                } else if (label === "Red/Blue Cup") { 
+                    emoji = "🔴🔵"; 
+                } else {
+                    emoji = "❓";}
     
                 textSize(256);
                 text(emoji, width / 2, height / 2);
