@@ -230,9 +230,46 @@ nav {
     background-color: #f7f7f7;
     padding: 20px;
     border-radius: 12px;
-    width: 300px;
     box-shadow: 0 4px 8px lightslategray;
     text-align: center;
+}
+
+/* split layout card */
+.card.split {
+    display: flex;
+    gap: 30px;
+    align-items: stretch;
+}
+
+/* left text side */
+.card-text {
+    flex: 1;
+}
+
+/* right image side */
+.card-media {
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+.card-media img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* mobile adjust */
+@media (max-width: 760px) {
+    .card.split {
+        flex-direction: column;
+    }
+
+    .card-media {
+        justify-content: center;
+    }
 }
 
 /* Headings inside cards */

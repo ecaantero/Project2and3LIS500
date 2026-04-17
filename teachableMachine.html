@@ -32,14 +32,20 @@
         <section class="key-terms analysis-section">
             <h2 class="overview-heading">Project Overview</h2>
             <div class="cards-container">
-                <div class="card">
-                    <p>
+                <div class="card split">
+
+                    <div class="card-text">
+                        <p>
                         This project explores the process of training a machine learning model using Google's Teachable Machine, with the goal of understanding how AI systems recognize and classify visual data. <br> 
                         <br> 
                         Our group developed an image classifier that is designed to distinguish between different categories of images, specifically different styles, shapes, and colors of cups. The purpose of this project is not only to build a functional machine learning model, but also to better understand how data influences the way algorithms learn and make decisions. By collecting and using original images, we are directly shaping the dataset that the model relies on, which allows us to observe how variations in images, such as lighting, angle, and background, impact the model's performance. <br>
                         <br>
                         Through this process, we aim to explore both the technical and conceptual aspects of machine learning. Using Teachable Machine makes it possible to experiment with training an AI model, while still revealing the challenges behind accurate image classification and data collection. This project also encourages us to think about how artificial intelligence systems are built and how the data used to train them can affect outcomes, especially with real-world implications. 
                     </p>
+                </div>
+                <div class="card-media">
+                    <img src="TMOverview.png" alt="Project overview image">
+                </div>
                 </div>
             </div>
         </section>
@@ -51,7 +57,6 @@
                 <div class="card">
                     <p>
                         The scope of this project includes using Google's Teachable Machine to develop a machine learning image classifier. The project includes collecting and organizing image data, training the model, embedding it into a webpage using HTML, and testing its performance in real time through live webcam input. One of our main goals for this project was to learn more about machine learning systems and understand how they work. We were able to do this directly using our own data. Another goal that we had was that we wanted to evaluate how the variety of the data affects model accuracy. We also want to learn more how teachable machines can struggle when faced with unfamiliar inputs, and how bias in datasets can influence results. Before we started this project, some of the challenges we expected to face had to do with inconsistent predictions. The limited data allows for problems such as sensibility to the lighting and background changes. Another road block we thought we might have to anticipate for was that the model might classify some categories more accurately than others. Overall, we’re excited to work on this project because it gives us hands-on experience with building a machine learning system in a web environment that can help us once we graduate and start our careers.
-
                     </p>
                 </div>
             </div>
@@ -61,6 +66,7 @@
         <section class="key-terms analysis-section">
             <h2 class="overview-heading">Process</h2>
             <div class="cards-container">
+<<<<<<< HEAD
                 <div class="card">
                     <p>
                         Our group created an original dataset to train a machine learning model. We focused on classifying different categories of cups. This included using various colors, backgrounds, angles, distances, use of lights, shapes, and sizes. Each group member collected 100 original images, resulting in a total of 200 images. This allowed us to better understand how the data we collected directly affects the model's performance, outcomes, and potential bias. This helped make the dataset more diverse, given the various images captured. After collecting the images, we organized them into 2 labeled categories. <br> 
@@ -73,12 +79,28 @@
                         During training, the model is able to recognize and pick up patterns seen in the samples we provided. The model is able to identify patterns within the provided samples and adjust its parameters accordingly. This showed the importance of data quality and variation in building an effective machine learning model.
                         After training, the model is then able to predict new inputs in real time. These predictions are based on the sample data our group provided. <br>
                     </p>
+=======
+                <div class="card split">
+>>>>>>> be3d11f (image updates)
 
-                    <!-- IMAGE -->
-                    <div class="process-image">
-                        <img src="TMOverview.png" alt="Cups used in project">
+                    <div class="card-text">
+                        <p>
+                            Our group created an original dataset to train a machine learning model. We focused on classifying different categories of cups. This included using various colors, backgrounds, angles, distances, use of lights, shapes, and sizes. Each group member collected 100 original images, resulting in a total of 200 images. This allowed us to better understand how the data we collected directly affects the model's performance, outcomes, and potential bias. This helped make the dataset more diverse, given the various images captured. After collecting the images, we organized them into 2 labeled categories.
+                            <br>
+                            <br>
+                            Class 1 = White Cups
+                            <br> 
+                            Class 2 = Blue/Red Cup
+                            <br>
+                            <br>
+                            These were then used for training, where Teachable Machine uses TenserFLow.js. Teachable Machine uses supervised learning to complete this. This model is based on data input, model training, and real-time predictions. During training, the model is able to recognize and pick up patterns seen in the samples we provided. The model is able to identify patterns within the provided samples and adjust its parameters accordingly. This showed the importance of data quality and variation in building an effective machine learning model. After training, the model is then able to predict new inputs in real time. These predictions are based on the sample data our group provided.
+                        </p>
                     </div>
-
+                
+                    <div class="card-media">
+                        <img src="TMOverview.png" alt="Training of Class 1 = white cups and Class 2 = Blue/Red cup">
+                    </div>
+                
                 </div>
             </div>
         </section>
@@ -110,10 +132,12 @@
 
         <!-- Testing and results  -->
         <section class="key-terms analysis-section">
-            <h2 class="overview-heading">Testing and Results</h2>
+            <h2 class="overview-heading">Process</h2>
             <div class="cards-container">
-                <div class="card">
-                    <p>
+                <div class="card split">
+
+                    <div class="card-text">
+                        <p>
                         During testing, our model was evaluated using a wide variety of inputs beyond the original dataset, including different cup colors, lighting conditions, backgrounds, camera angles, distances, and miscellaneous non-cup objects with various colors. This helped us understand how the model generalizes outside of its training data. 
                         <br>
                         <br>
@@ -133,8 +157,15 @@
                          
                     </p>
                 </div>
+    
+                <div class="card-media">
+                    <img src="TMOverview.png" alt="Training of Class 1 = white cups and Class 2 = Blue/Red cup">
+                </div>
+    
             </div>
-        </section>
+    
+        </div>
+    </section>
 
         <!-- Reflection to UnmaskingAI  -->
         <section class="key-terms analysis-section">
