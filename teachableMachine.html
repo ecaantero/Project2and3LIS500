@@ -66,8 +66,8 @@
                         Our group created an original dataset to train a machine learning model. We focused on classifying different categories of cups. This included using various colors, backgrounds, angles, distances, use of lights, shapes, and sizes. Each group member collected 100 original images, resulting in a total of 200 images. This allowed us to better understand how the data we collected directly affects the model's performance, outcomes, and potential bias. This helped make the dataset more diverse, given the various images captured. After collecting the images, we organized them into 2 labeled categories. <br> 
                         <br> 
                         Class 1 = White Cups <br>
-                        Class 2 = Blue/Red Cup
-                        <br> 
+                        Class 2 = Blue/Red Cup<br> 
+                        Class 3 = Navy Cup
                         <br> 
                         These were then used for training, where Teachable Machine uses TenserFLow.js. Teachable Machine uses supervised learning to complete this. This model is based on data input, model training, and real-time predictions. 
                         During training, the model is able to recognize and pick up patterns seen in the samples we provided. The model is able to identify patterns within the provided samples and adjust its parameters accordingly. This showed the importance of data quality and variation in building an effective machine learning model.
@@ -117,7 +117,7 @@
                         During testing, our model was evaluated using a wide variety of inputs beyond the original dataset, including different cup colors, lighting conditions, backgrounds, camera angles, distances, and miscellaneous non-cup objects with various colors. This helped us understand how the model generalizes outside of its training data. 
                         <br>
                         <br>
-                        We found that the model heavily relied on color as its main feature for classification rather than the actual shape of the cups. Instead of recognizing structural features of a cup, it often made predictions based on whether an image appeared closer to “white” or “red/blue.”
+                        We found that the model heavily relied on color as its main feature for classification rather than the actual shape of the cups. Instead of recognizing structural features of a cup, it often made predictions based on whether an image appeared closer to “white”, “red/blue”, or "navy."
                         <br>
                         <br>
                         Lighting also played a significant role in the model’s behavior. Since many white cup images in the dataset were taken in darker lighting, the model sometimes classified darker or shadowed cups as white cups. This showed that it associated lighting conditions with labels rather than actual object identity.
