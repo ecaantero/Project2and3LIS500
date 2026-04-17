@@ -317,3 +317,9 @@ nav {
     margin: 0 auto;
     text-align: left;
 }
+
+/* TM Process Image */
+.process-image img {
+    width: 1000px; 
+    height: auto;
+}
