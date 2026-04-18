@@ -242,22 +242,26 @@ After training, the model is then able to predict new inputs in real time. These
             let modelURL = 'https://teachablemachine.withgoogle.com/models/mhCp_3S74/'; // updated link with 3 classes 
     
             function preload() {
-                classifier = ml5.imageClassifier(modelURL + 'model.json');
+                classifier = ml5.imageClassifier(modelURL, modelReady);
             }
     
             function setup() {
                 let canvas = createCanvas(640, 520);
                 canvas.parent("canvasContainer");
+
                 video = createCapture(VIDEO);
                 video.size(640, 520);
                 video.hide();
+            }
+            
+            function modelReady() {
                 classifyVideo();
             }
     
             function draw() {
                 background(0);
                 image(video, 0, 0);
-    
+                
                 textSize(32);
                 textAlign(CENTER, CENTER);
                 fill(255);
@@ -265,13 +269,18 @@ After training, the model is then able to predict new inputs in real time. These
                 
                 
                 let emoji = "❓";
-                if (label === "White Cup") { 
-                    emoji = "⚪"; 
-                } else if (label === "Red/Blue Cup") { 
-                    emoji = "🔴🔵"; 
+                
+                if (label === "White Cup") {
+                    emoji = "⚪";
+                } else if (label === "Red/Blue Cup") {
+                    emoji = "🔴🔵";
+                } else if (label === "Navy Cup") {
+                    emoji = "🔵";
                 } else {
-                    emoji = "❓";}
-    
+                    emoji = "❓";
+                }
+                
+            
                 textSize(256);
                 text(emoji, width / 2, height / 2);
             }
@@ -279,12 +288,14 @@ After training, the model is then able to predict new inputs in real time. These
             function classifyVideo() {
                 classifier.classify(video, gotResults);
             }
-    
+            
             function gotResults(error, results) {
                 if (error) {
                     console.error(error);
                     return;
                 }
+                
+                
                 label = results[0].label;
                 document.getElementById("label").innerText = label;
                 classifyVideo();
