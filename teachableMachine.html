@@ -35,7 +35,7 @@
                 <div class="card split">
                     <div class="card-text">
                         <p>
-                        This project explores the process of training a machine learning model using Google's Teachable Machine, with the goal of understanding how AI systems recognize and classify visual data. <br> 
+                        This project explores the process of training a machine learning model using Google's Teachable Machine, with the goal of understanding how AI systems recognize and classify visual data.<br> 
                         <br> 
                         Our group developed an image classifier that is designed to distinguish between different categories of images, specifically different styles, shapes, and colors of cups. The purpose of this project is not only to build a functional machine learning model, but also to better understand how data influences the way algorithms learn and make decisions. By collecting and using original images, we are directly shaping the dataset that the model relies on, which allows us to observe how variations in images, such as lighting, angle, and background, impact the model's performance. <br>
                         <br>
@@ -71,15 +71,14 @@
                 <div class="card split">
                     <div class="card-text">
                         <p>
-                            Our group created an original dataset to train a machine learning model. We focused on classifying different categories of cups. This included using various colors, backgrounds, angles, distances, use of lights, shapes, and sizes. Each group member collected 100 original images, resulting in a total of 200 images. This allowed us to better understand how the data we collected directly affects the model's performance, outcomes, and potential bias. This helped make the dataset more diverse, given the various images captured. After collecting the images, we organized them into 2 labeled categories. <br><br>
+                            Our group created an original dataset to train a machine learning model. We focused on classifying different categories of cups. This included using various colors, backgrounds, angles, distances, use of lights, shapes, and sizes. We collected 100 images from 3 different types of cups resulting in a total of 300 images. This allowed us to better understand how the data we collected directly affects the model's performance, outcomes, and potential bias. This helped make the dataset more diverse, given the various images captured. After collecting the images, we organized them into 3 labeled categories. <br><br>
                             
                             Class 1 = White Cups <br>
                             Class 2 = Blue/Red Cup <br>
                             Class 3 = Navy Cup <br><br>
                             
-                            These were then used for training, where Teachable Machine uses TenserFLow.js. Teachable Machine uses supervised learning to complete this. This model is based on data input, model training, and real-time predictions. During training, the model is able to recognize and pick up patterns seen in the samples we provided. The model is able to identify patterns within the provided samples and adjust its parameters accordingly. This showed the importance of data quality and variation in building an effective machine learning model. After training, the model is then able to predict new inputs in real time. These predictions are based on the sample data our group provided.
-
-
+                            These were then used for training, where Teachable Machine uses TenserFLow.js. Teachable Machine uses supervised learning to complete this. This model is based on data input, model training, and real-time predictions. During training, the model is able to recognize and pick up patterns seen in the samples we provided. The model is able to identify patterns within the provided samples and adjust its parameters accordingly. This showed the importance of data quality and variation in building an effective machine learning model. 
+After training, the model is then able to predict new inputs in real time. These predictions are based on the sample data our group provided. 
                         </p>
                     </div>
                     
@@ -134,7 +133,7 @@
                         Lighting also played a significant role in the model's behavior. Since many white cup images in the dataset were taken in darker lighting, the model sometimes classified darker or shadowed cups as white cups. This showed that it associated lighting conditions with labels rather than actual object identity.
                         <br>
                         <br>
-                        Backgrounds were another major influence. Because many red/blue cup images were taken in front of a brown or wooden background, the model sometimes linked that background with the red/blue class. As a result, white cups placed on similar backgrounds were occasionally misclassified.
+                        Backgrounds were another major influence. Because many red/blue cup and the navy cup images were taken in front of a brown or wooden background, the model sometimes linked that background with the red/blue class or the navy class. As a result, white cups placed on similar wooded/brown backgrounds were occasionally misclassified.
                         <br>
                         <br>
                         We also observed that distance and angle affected accuracy. Cups placed closer to the camera were more likely to be correctly identified, while those further away were less accurately classified.
