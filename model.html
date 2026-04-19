@@ -1,113 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Cup Classifier AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Model </title>
+    <link rel="stylesheet" href="styles.css">
 
-  <!-- p5.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <!-- Nav Bar -->
+    <nav>
+        <ul class="navbar">
+            <li><a href="index.html" >Home</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="aboutme.html">About Us</a></li>
+            <li><a href="techHero.html">Tech Heroes</a></li>
+            <li><a href="teachableMachine.html" >Teachable Machines</a></li>
+        </ul>
+    </nav>
 
-  <!-- ml5.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ml5/0.12.2/ml5.min.js"></script>
+    <!-- Welcome Section -->
+    <header class="home-header">
+        <h1>Machine Learning Model: Cups</h1>
+    </header>
+    
+    <div>	
+        <main class="resource-container">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #111;
-      color: white;
-      text-align: center;
+<div>	
+<section>
+	<div class="columnleft">
+	<h3>Cup Recognition Model</h3>
+	</div>
+</section>
+
+<!-- model -->
+<section>
+
+    <div class="button-wrapper">
+        <button class="btn" type="button" onclick="init()">Start Model</button>
+
+        <!-- Go Back button -->
+        <a class="btn go-back-btn" href="teachableMachine.html">
+            Go Back
+        </a>
+
+    </div>
+
+    <div class="model-wrapper">
+
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+    <!-- script-->
+<script type="text/javascript">
+
+const URL = "https://teachablemachine.withgoogle.com/models/mhCp_3S74/";
+let model, webcam, labelContainer, maxPredictions;
+
+// model load 
+async function init() {
+    const modelURL = URL + "model.json";
+    const metadataURL = URL + "metadata.json";
+    
+
+    model = await tmImage.load(modelURL, metadataURL); // load model 
+    maxPredictions = model.getTotalClasses(); // get predictions 
+
+    const flip = true;
+    webcam = new tmImage.Webcam(640, 480, flip); 
+    await webcam.setup(); // request camera accesss 
+    await webcam.play(); // show video 
+
+    window.requestAnimationFrame(loop);
+
+    document.getElementById("webcam-container").appendChild(webcam.canvas); // camera show
+
+    labelContainer = document.getElementById("label-container"); // prediction labels shown 
+
+    for (let i = 0; i < maxPredictions; i++) { 
+        labelContainer.appendChild(document.createElement("div"));
     }
+}
 
-    h1 {
-      margin: 10px 0;
-      font-size: 28px;
+// main loop for every frame 
+async function loop() {
+    webcam.update(); // refresh
+    await predict();
+    window.requestAnimationFrame(loop);
+}
+
+async function predict() {
+
+    const prediction = await model.predict(webcam.canvas); // prediciton results 
+
+    for (let i = 0; i < maxPredictions; i++) {
+        const percent = (prediction[i].probability * 100).toFixed(1); // probabily % 
+        // output text: class + prediction % is shown 
+        const classPrediction = prediction[i].className + ": " + percent + "%";
+        labelContainer.childNodes[i].innerHTML = classPrediction;
     }
+}
 
-    p {
-      margin: 0 0 10px;
-      color: #aaa;
-    }
+</script>
 
-    canvas {
-      display: block;
-      margin: 0 auto;
-    }
-  </style>
-</head>
+</section>
 
-<body>
-  <h1>🥤 Cup Classifier AI</h1>
-  <p>Show a white, blue/red, or navy cup to the camera</p>
+</div>
+</main>
+</div>
 
-  <script>
-    let video;
-    let label = "Loading model...";
-    let classifier;
-
-    // IMPORTANT: no trailing slash
-    let modelURL = 'https://teachablemachine.withgoogle.com/models/mhCp_3S74';
-
-    function preload() {
-      classifier = ml5.imageClassifier(modelURL + '/model.json', modelReady);
-    }
-
-    function modelReady() {
-      console.log("Model Loaded!");
-      classifyVideo();
-    }
-
-    function setup() {
-      createCanvas(640, 520);
-
-      video = createCapture(VIDEO);
-      video.size(640, 480);
-      video.hide();
-    }
-
-    function classifyVideo() {
-      classifier.classify(video, gotResults);
-    }
-
-    function draw() {
-      background(0);
-
-      // video
-      image(video, 0, 0);
-
-      // label text
-      fill(255);
-      textSize(28);
-      textAlign(CENTER, CENTER);
-      text(label, width / 2, height - 20);
-
-      // emoji display
-      textSize(160);
-      let emoji = "☕";
-
-      if (label === "white cup") {
-        emoji = "🤍☕";
-      } 
-      else if (label === "blue/red cup") {
-        emoji = "🔵🔴☕";
-      } 
-      else if (label === "navy cup") {
-        emoji = "💙☕";
-      }
-
-      text(emoji, width / 2, height / 2);
-    }
-
-    function gotResults(error, results) {
-      if (error) {
-        console.error(error);
-        label = "Error loading model";
-        return;
-      }
-
-      label = results[0].label;
-      classifyVideo();
-    }
-  </script>
 </body>
 </html>

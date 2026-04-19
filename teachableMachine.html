@@ -107,16 +107,19 @@ After training, the model is then able to predict new inputs in real time. These
         <!-- Test Model --> 
         <section class="key-terms analysis-section">
             <h2 class="overview-heading">Test the Model</h2>
+            
             <div class="cards-container">
                 <div class="card">
-                    <div id="canvasContainer"></div>
-                    <p style="text-align:center; font-size:24px;">Label: <span id="label">Loading model...</span></p>
-                    <p id="feedback" style="text-align:center; font-size:20px;">
-                        Waiting for prediction...
-                        </p>
-                </div>
-            </div>
-        </section>
+                    <div style="text-align:center; padding: 40px;">
+                        <a class="btn go-model-btn" href="model.html">
+                            Try the model
+                        </a>
+                    
+                    </div>
+
+        </div>
+    </div>
+</section>
 
         <!-- Testing and results  -->
         <section class="key-terms analysis-section">
@@ -276,76 +279,6 @@ After training, the model is then able to predict new inputs in real time. These
         </section>
 
     </main>
-
-        <!-- Script -->
-        <script>
-            let video;
-            let label = "waiting...";
-            let classifier;
-    
-            // add teachable machine model Link below
-            let modelURL = 'https://teachablemachine.withgoogle.com/models/mhCp_3S74/'; // updated link with 3 classes 
-    
-            function preload() {
-                classifier = ml5.imageClassifier(modelURL, modelReady);
-            }
-    
-            function setup() {
-                let canvas = createCanvas(640, 520);
-                canvas.parent("canvasContainer");
-
-                video = createCapture(VIDEO);
-                video.size(640, 520);
-                video.hide();
-            }
-            
-            function modelReady() {
-                classifyVideo();
-            }
-    
-            function draw() {
-                background(0);
-                image(video, 0, 0);
-                
-                textSize(32);
-                textAlign(CENTER, CENTER);
-                fill(255);
-                text(label, width / 2, height - 16);
-                
-                
-                let emoji = "❓";
-                
-                if (label === "White Cup") {
-                    emoji = "⚪";
-                } else if (label === "Red/Blue Cup") {
-                    emoji = "🔴🔵";
-                } else if (label === "Navy Cup") {
-                    emoji = "🔵";
-                } else {
-                    emoji = "❓";
-                }
-                
-            
-                textSize(256);
-                text(emoji, width / 2, height / 2);
-            }
-    
-            function classifyVideo() {
-                classifier.classify(video, gotResults);
-            }
-            
-            function gotResults(error, results) {
-                if (error) {
-                    console.error(error);
-                    return;
-                }
-                
-                
-                label = results[0].label;
-                document.getElementById("label").innerText = label;
-                classifyVideo();
-            }
-        </script>
 
 </body>
 </html>
