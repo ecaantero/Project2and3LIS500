@@ -163,12 +163,36 @@ After training, the model is then able to predict new inputs in real time. These
 
                     <div class="card-text">
                         <p>
-                        testing
+                            Bias was present in our AI model, even though the task seemed simple: classifying cups into Class 1 (white cups), Class 2 (red/blue cups), and Class 3 (navy cups). Even in this basic system, the labels and decisions we made directly shaped how the model learned. The outputs were highly dependent on the dataset we created, including how we defined, separated, and labeled each class.
+                            <br> 
+                            <br> 
+                            This demonstrates a key idea: AI systems are not neutral. They rely entirely on the data they are trained on, as well as how that data is collected, structured, and represented. In our model, we observed that the background of the images had a significant influence on classification. This shows that the model was not truly “understanding” cups; it was learning patterns, including background color or lighting conditions.
+                            <br> 
+                            <br> 
+                            Separating objects into fixed categories also highlights how classification systems can oversimplify reality. Even though these were everyday objects, grouping them into strict labels reduced variation. This reflects a broader issue in real-world AI systems, where complex traits are often treated as fixed and easily defined, when in reality they are not. 
+                            <br> 
+                            <br> 
+                            Our model also made clear errors: for example, when a non-cup object was placed in front of the camera, the system still classified it as one of the cup categories. This is similar to what is known in computer vision as a false positive, when a system detects something that is not actually there. These mistakes highlight the limitations of AI systems and how easily they can misinterpret unfamiliar/underrepresented inputs.
+                            <br> 
+                            <br> 
+                            These observations connect directly to the ideas in Unmasking AI by Joy Buolamwini, which explains how bias emerges from both data and design choices. One example from the book is the challenge of poor illumination in computer vision. Cameras operate within the limits of the visible light spectrum, and these constraints can affect how different subjects are represented.
+                            <br> 
+                            <br> 
+                            An example of this bias is the “Shirley card,” a standard image used to calibrate film cameras. These cards originally featured a white woman and were used to set ideal exposure and color balance. As a result, people with darker skin tones were not accurately represented in photographs. This shows that even “default” technical settings are not neutral. They reflect specific assumptions and priorities.
+                            <br> 
+                            <br> 
+                            The book also discusses how bias in AI can lead to serious real-world consequences. Facial recognition systems, for example, have been shown to misidentify individuals, especially those from underrepresented groups, due to incomplete or biased training data. These errors can lead to wrongful accusations in criminal investigations, demonstrating how small technical flaws can scale into significant harm. This relates to our model because it also made incorrect classifications and was influenced by factors like background and image conditions rather than just the cup itself. While our example is low-stakes, it shows how AI systems can rely on patterns instead of true understanding, leading to errors that could be much more harmful in real-world applications.
+                            <br> 
+                            <br> 
+                            Bias in AI has also impacted students. During the COVID-19 pandemic, Buolamwini stated that many schools used facial recognition based proctoring systems for online exams. Reports showed that darker-skinned students were more likely to be flagged as suspicious or were sometimes unable to verify their identity, putting them at a disadvantage.
+                            <br> 
+                            <br> 
+                            The book also critiques large datasets like ImageNet, which are widely used to train AI models. Although ImageNet contains millions of labeled images, it also includes harmful and inaccurate classifications. For example, some images of dark-skinned individuals were labeled with terms like “wrongdoer” or “offender.” This shows how biased labeling within datasets can directly influence how AI systems interpret and categorize people.
+                            <br> 
+                            <br> 
+                            Overall, AI systems reflect human decisions at every stage, from data collection to labeling to model design. Even a simple cup classification model revealed how bias can enter through seemingly small choices. Accuracy and fairness of an AI system depend entirely on the quality and thoughtfulness of its training data. Without careful design and critical evaluation, these systems can reinforce and amplify existing biases and produce harmful or misleading outcomes in real-world applications.
                     </p>
                 </div>
-
-                <!-- Need to make img below smaller -->
-                <!-- added a new tag but cant seem to adjust size in css - Emilia -->
                 <div class="card-media">
                     <img class="unmaskingAI-img" src="unmaskingAI.jpg" alt="Unmasking AI book cover"> 
                 </div>
