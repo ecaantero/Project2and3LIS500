@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interpretation | Teachable Machines Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- ML5 / p5 not needed for this page, but kept for consistency -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+        }
+
+        /* Navigation (mirrors your original design) */
+        nav {
+            background: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0.75rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(4px);
+            background-color: rgba(255, 255, 255, 0.96);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .navbar li a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            padding: 0.5rem 0.25rem;
+            transition: color 0.2s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar li a:hover {
+            color: #3b82f6;
+            border-bottom-color: #3b82f6;
+        }
+
+        .navbar li a.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+            font-weight: 600;
+        }
+
+        main {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* header section */
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e293b, #3b82f6);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+
+        .page-header h3 {
+            font-weight: 500;
+            color: #475569;
+            margin-top: 0.5rem;
+        }
+
+        /* cards & containers matching your existing design language */
+        .analysis-section {
+            margin-bottom: 3rem;
+        }
+
+        .overview-heading {
+            font-size: 1.8rem;
+            font-weight: 600;
+            border-left: 5px solid #3b82f6;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            color: #0f172a;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 1.25rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.05);
+            padding: 1.8rem 2rem;
+            transition: all 0.2s ease;
+            border: 1px solid #eef2ff;
+        }
+
+        .card.split {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .card-text {
+            flex: 2;
+            min-width: 240px;
+        }
+
+        .card-text p {
+            margin-bottom: 1rem;
+            font-size: 1.02rem;
+            color: #1e293b;
+        }
+
+        .card-media {
+            flex: 1.2;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .card-media img {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2edff;
+            background: #f1f5f9;
+        }
+
+        .stack-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .interpretation-quote {
+            background: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            padding: 1.2rem 1.8rem;
+            border-radius: 1rem;
+            font-style: normal;
+            font-weight: 500;
+            color: #1e40af;
+            margin: 1rem 0;
+        }
+
+        .highlight {
+            background: #fef9c3;
+            padding: 0.1rem 0.3rem;
+            border-radius: 6px;
+            font-weight: 500;
+            color: #854d0e;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(90deg, #e2e8f0, transparent);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #2563eb;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3.5rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 720px) {
+            .card.split {
+                flex-direction: column;
+            }
+            .navbar {
+                gap: 1rem;
+            }
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .overview-heading {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Consistent navigation matching your original project -->
+    <nav>
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="aboutme.html">About Us</a></li>
+            <li><a href="techHero.html">Tech Heroes</a></li>
+            <li><a href="teachableMachine.html">Teachable Machine</a></li>
+            <li><a href="interpretation.html" class="active">Interpretation</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>⟡ Interpretation & Critical Reflection ⟡</h1>
+            <h3>What the cups reveal about AI, bias, and classification</h3>
+            <p style="margin-top: 0.8rem; color: #475569; max-width: 700px; margin-left: auto; margin-right: auto;">Beyond building a classifier — understanding how data shapes machine behavior, and why fairness in AI is never automatic.</p>
+        </div>
+
+        <!-- SECTION 1: Reframing the project as an interpretation lens -->
+        <section class="analysis-section">
+            <h2 class="overview-heading">Beyond accuracy: interpreting the model’s behavior</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <p><strong>Our teachable machine project was never just about cups.</strong> It was a mirror reflecting how artificial intelligence systems “see” the world — through patterns, shortcuts, and statistical correlations rather than genuine understanding. When we tested our cup classifier, we noticed that the model often confused a dark shadow for a white cup, or a wooden background for the red/blue class. These aren't “bugs” in the traditional sense; they are interpretable symptoms of how machine learning models prioritize surface-level signals over meaning.</p>
+                    <div class="interpretation-quote">
+                        🧠 <strong>Interpretation insight:</strong> The model’s heavy reliance on color and background reveals a core limitation of supervised learning: without explicit instruction, the model will latch onto any consistent correlation. White cups were frequently photographed in dim lighting → dim lighting becomes a feature for “white cup.” This shows that even honest data collection can embed hidden biases.
+                    </div>
+                    <p>Interpretation asks us to look beyond the demo and ask: <em>What does the model actually learn, and what does it ignore?</em> In our case, the classifier never learned the <strong>semantic essence</strong> of a cup (a container with an opening, handle or cylindrical form). Instead, it learned a fragile pattern of color histograms and edge contrasts. That’s why a yellow highlighter placed in front of a brown background could be misclassified as a navy cup. This fragility is not unique to our project — it's a feature of many real-world AI systems, from medical imaging to autonomous vehicles.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Epistemological limits – what classification systems hide -->
+        <section class="analysis-section">
+            <h2 class="overview-heading">Classification as power: what gets flattened</h2>
+            <div class="cards-container">
+                <div class="card split">
+                    <div class="card-text">
+                        <p>When we created three discrete classes — <span class="highlight">White Cups</span>, <span class="highlight">Blue/Red Cups</span>, and <span class="highlight">Navy Cups</span> — we made an editorial choice. That choice erased nuance: what about a cup that is both navy and patterned with white dots? What about a cup that changes appearance under different lights? By forcing every image into one of three buckets, our system performed what scholar <strong>Bowker & Star</strong> call “classification violence” — the act of simplifying a complex world into rigid categories.</p>
+                        <p>Interpretation of our project reveals a direct analogy to how AI systems classify people: gender into “male/female,” race into census categories, emotions into six discrete types. These simplifications serve technical convenience but often erase intersectional identities. The cup that is half-white, half-blue would confuse our model — just as a person with multi-ethnic heritage confuses facial recognition systems that expect homogenous categories. This is not a flaw of our dataset alone; it’s a philosophical challenge baked into machine learning itself.</p>
+                        <p><strong>Key takeaway:</strong> Every classifier reflects the worldview of its creators. Our decision to group cups by color rather than shape, handle type, or material was subjective. If we had prioritized shape (mug vs. tumbler), the model’s behavior would have been completely different. Interpretation means taking responsibility for those choices.</p>
+                    </div>
+                    <div class="card-media">
+                        <img src="https://via.placeholder.com/400x250?text=Visual+Analogy:+Categories+Flatten+Reality" alt="Illustration showing how real-world continuum gets split into discrete classes" style="background: #eef2ff; object-fit: cover;">
+                        <small style="color: #4b5563; text-align: center;">Illustrative: continuous variation → discrete bins (interpretive gap)</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Connecting with Unmasking AI & Buolamwini (deep interpretation) -->
+        <section class="analysis-section">
+            <h2 class="overview-heading">Unmasking AI: from Shirley cards to cup backgrounds</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <p><strong>Joy Buolamwini’s core argument</strong> is that bias in AI is not a glitch but a structural feature that arises from homogeneous data and unexamined defaults. In our project, the “Shirley card” effect appeared clearly: because most of our white cup images were taken in darker indoor lighting, the model learned to associate lower luminance with “white cup” — exactly like how photographic film was calibrated for lighter skin tones, leaving darker skin under- or over-exposed.</p>
+                    <p>Interpretation means tracing those technical choices back to social consequences. While our cup model is low-stakes, the same dynamics apply to hiring algorithms (associating certain backgrounds with “professionalism”), healthcare AI (underdiagnosing conditions in underrepresented groups due to training data gaps), and face recognition (disproportionate false matches for people with darker skin). Our test showed that when we placed a non-cup object with a similar color profile (e.g., a brown notebook) on a wooden desk, the model confidently classified it as “navy cup” or “red/blue cup.” This is exactly the kind of <strong>false positive</strong> that, in a law enforcement context, could lead to wrongful accusation.</p>
+                    <div class="interpretation-quote">
+                        📖 <strong>Interpretive link:</strong> Buolamwini writes, “When facial recognition fails, you can find yourself under investigation for a crime you did not commit.” Our model failed in analogous (though trivial) ways — confidently identifying a cup where there was none. That leap from “pattern matching” to “certainty” is dangerous when deployed in surveillance or criminal justice.
+                    </div>
+                    <p>Furthermore, our model’s dependency on background (wooden surface → red/blue cup) mirrors how facial recognition systems often depend on lighting, background walls, and camera quality, systematically disadvantaging people who are not represented in the training set. Interpretation pushes us to ask: what if we had only trained on cups held by light-skinned hands against white walls? The model would have failed when tested in diverse environments. That's not a hypothetical — it's a documented pattern in real-world AI deployment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Intersectionality – more than one identity -->
+        <section class="analysis-section">
+            <h2 class="overview-heading">Intersectionality & overlapping features</h2>
+            <div class="cards-container">
+                <div class="card split">
+                    <div class="card-text">
+                        <p>Kimberlé Crenshaw’s theory of intersectionality argues that people experience overlapping systems of privilege and oppression that cannot be understood by looking at single categories (race, gender, class) in isolation. How does this relate to our cup classifier? Our model treated each cup as a single, non-overlapping category — but what if a cup is both “white” and “patterned with blue”? Or what if it’s “navy” under cool light and “black” under warm light? The model collapses these intersections into one forced label.</p>
+                        <p>This has profound implications for ethical AI. When companies build demographic classifiers that force people into “one race” or “one gender,” they erase the lived reality of multiracial, transgender, and nonbinary individuals. Our technical choice to use <strong>mutually exclusive classes</strong> was pragmatic, but interpretation reveals that pragmatism often comes at the cost of nuance. A better design might have used multi-label classification or continuous scores, but even then, the fundamental tension remains: machine learning prefers clean bins, but human identity is messy.</p>
+                        <p>By interpreting our project through intersectionality, we realize that <strong>no classification system is neutral</strong>. Even the act of labeling images of cups involves decisions about what counts as a meaningful difference — decisions that mirror larger social dynamics of sorting and ranking.</p>
+                    </div>
+                    <div class="card-media stack-right">
+                        <img src="https://via.placeholder.com/350x180?text=Intersectionality+Overlap" alt="Venn diagram showing overlapping categories - white cup & navy cup patterns" style="background: #f1f5f9;">
+                        <small style="color: #4b5563;">Overlapping features cannot be reduced to one label — same for human identities.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Real-world implications – moving beyond cups -->
+        <section class="analysis-section">
+            <h2 class="overview-heading">From misclassified cups to real harm</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <p>Our testing showed that the model misclassified objects when background or lighting changed. If this were a medical AI trained on X-rays from only one hospital, it might fail when deployed at another site with different machines — leading to missed diagnoses. If it were an autonomous vehicle’s pedestrian detector trained mostly on daylit images, it could fail at night. Interpretation of our teachable machine project shows that <strong>generalization is the hardest problem in AI</strong>, and “success” in the lab often hides failure in the wild.</p>
+                    <p>We also observed that the model was overconfident: it always produced a high confidence score for one of the three classes, even when looking at a hand, a phone, or a random object. This mirrors commercial AI systems that output percentages without communicating uncertainty, leading users to trust them blindly. A truly interpretable system would say, “I’m not sure, this doesn’t look like any cup class.” But typical models lack that capability. This reinforces the idea that AI should be designed with <strong>humility and uncertainty quantification</strong>, especially in high-stakes contexts.</p>
+                    <div class="interpretation-quote">
+                        ⚖️ <strong>Interpretive conclusion:</strong> The same pattern recognition that made our cup model fragile is baked into loan approval algorithms, hiring screens, and predictive policing. Unless we rigorously test for distributional shifts (new backgrounds, lighting, object variations), AI systems will replicate and amplify blind spots.
+                    </div>
+                    <p>Therefore, our project acts as a microcosm: by interpreting its failures, we learn to demand transparency, diverse datasets, and ongoing evaluation in any AI system that affects human lives.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Lessons for responsible AI design -->
+        <section class="analysis-section">
+            <h2 class="overview-heading">Interpretation as a design practice</h2>
+            <div class="cards-container">
+                <div class="card split">
+                    <div class="card-text">
+                        <p><strong>What would a responsible AI process look like?</strong> Based on our interpretation, we propose several shifts:</p>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.5rem;">
+                            <li> <strong>Audit for shortcuts:</strong> Before deployment, test models on counterfactual examples (change background, lighting, angle) to reveal spurious correlations.</li>
+                            <li> <strong>Dataset diversity statements:</strong> Document what is included AND what is missing — e.g., “No images of cups under mixed lighting” — to inform users.</li>
+                            <li>️ <strong>Embrace intersectional evaluation:</strong> Don’t just measure overall accuracy; measure performance across subgroups defined by overlapping features (e.g., white cups on dark backgrounds vs. light backgrounds).</li>
+                            <li> <strong>Explainability tools:</strong> Use saliency maps or counterfactual explanations to show why a model made a decision (e.g., “Because of the brown texture at the bottom”).</li>
+                            <li> <strong>Graceful failure modes:</strong> Design AI systems to reject uncertain inputs or request human review, rather than guessing.</li>
+                        </ul>
+                        <p style="margin-top: 1rem;">Interpretation is not an afterthought — it is a <strong>critical practice</strong> that should guide data collection, model selection, and deployment. Our teachable machine journey showed us that even a “toy” project contains profound lessons about bias, power, and the limits of pattern matching.</p>
+                    </div>
+                    <div class="card-media">
+                        <img src="https://via.placeholder.com/380x220?text=Responsible+AI+Practices" alt="Design principles icons" style="background: #eef2ff;">
+                        <small>Building interpretable, fair AI requires intentional design at every stage.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: Final reflection and invitation -->
+        <section class="analysis-section">
+            <h2 class="overview-heading">Conclusion: what we carry forward</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <p>This interpretation page is not just an add-on — it is the heart of our project. The technical work of training a classifier taught us how to gather data and use ml5.js, but the critical work of interpretation taught us <strong>why it matters</strong>. We learned that AI is never just math; it is culture, power, and perspective encoded into vectors and probabilities. The cup classifier succeeded and failed in ways that illuminate both the promise and peril of machine learning.</p>
+                    <p>As we move forward in our careers — whether in tech, policy, design, or research — we will carry these interpretive lenses: ask whose data is missing, test for hidden correlations, and never mistake a model’s confidence for correctness. Thank you for reading this interpretive deep dive, and we invite you to explore the <a href="teachableMachine.html">original project</a>, <a href="model.html">test the model yourself</a>, and consider: what would you interpret differently?</p>
+                    <div style="margin-top: 1.5rem; text-align: center;">
+                        <a href="teachableMachine.html" class="btn">↺ Back to Teachable Machine Project</a>
+                        <a href="model.html" class="btn" style="background-color: #475569; margin-left: 0.8rem;">⚡ Test our classifier</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Optional citation consistency -->
+        <section class="analysis-section">
+            <h2 class="overview-heading">References & further reading</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <p>
+                        • Buolamwini, J. (2023). <em>Unmasking AI: My Mission to Protect What Is Human in a World of Machines</em>. Random House.<br>
+                        • Crenshaw, K. (2016). <em>The Urgency of Intersectionality</em>. TED Talk.<br>
+                        • Bowker, G. C., & Star, S. L. (2000). <em>Sorting Things Out: Classification and Its Consequences</em>. MIT Press.<br>
+                        • ml5.js & Teachable Machine documentation — hands-on learning with image classification.<br>
+                        • Project GitHub & dataset: <a href="https://github.com/ecaantero/Project2and3LIS500" target="_blank">https://github.com/ecaantero/Project2and3LIS500</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p> Interpretation page — LIS 500: Code, Power, and Interpretation | Emilia & Christian | Teachable Machine Project 2026</p>
+        <p style="margin-top: 0.4rem;">✨ “Algorithms are opinions embedded in code.” — Cathy O’Neil</p>
+    </footer>
+</body>
+</html>
